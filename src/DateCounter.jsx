@@ -36,6 +36,26 @@ function DateCounter() {
   const date = new Date("june 21 2027");
   date.setDate(date.getDate() + count);
 
+  const dec = function () {
+    dispatch({ type: "dec", payload: 1 });
+  };
+
+  const inc = function () {
+    dispatch({ type: "inc", payload: 1 });
+  };
+
+  const defineCount = function (e) {
+    dispatch({ type: "setCount", payload: Number(e.target.value) });
+  };
+
+  const defineStep = function (e) {
+    dispatch({ type: "setStep", payload: Number(e.target.value) });
+  };
+
+  const reset = function () {
+    dispatch({ type: "reset" });
+  };
+
   return (
     <div className="counter">
       <div>
