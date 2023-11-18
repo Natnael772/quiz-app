@@ -1,6 +1,12 @@
 import { useReducer, useState } from "react";
 
 function DateCounter() {
+  const [state, dispatch] = useReducer(reducer, initialState);
+  const { count, step } = state;
+
+  const date = new Date("june 21 2027");
+  date.setDate(date.getDate() + count);
+
   return (
     <div className="counter">
       <div>
