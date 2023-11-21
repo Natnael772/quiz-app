@@ -42,6 +42,21 @@ function App() {
   //derived state
   const numQuestions = questions.length;
 
+  // //fetch question data
+  useEffect(function () {
+    async function fetchQuestion() {
+      try {
+        const response = await fetch("http://localhost:8000/questions");
+        const data = await response.json();
+        console.log(data);
+        dispatch({ type: "dataReceived", payload: data });
+      } catch (error) {
+        console.error(error);
+        dispatch({ type: "dataFailed" });
+      }
+    }
+    fetchQuestion();
+  }, []);
   return (
     <div className="app">
       <Header />
