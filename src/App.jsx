@@ -9,6 +9,25 @@ import Loader from "./Loader";
 import Error from "./Error";
 import StartScreen from "./StartScreen";
 
+function reducer(state, action) {
+  switch (action.type) {
+    case "dataReceived":
+      return {
+        ...state,
+        questions: action.payload,
+        status: "ready",
+      };
+
+    case "dataFailed":
+      return {
+        ...state,
+        status: "error",
+      };
+
+    default:
+      throw new Error("Unknown action");
+  }
+}
 const initialState = {
   questions: [],
 
@@ -23,8 +42,8 @@ function App() {
     <div className="app">
       <Header />
       <MainSection>
-        <p>1/15</p>
-        <p>Question?</p>
+        {/* <p>1/15</p>
+        <p>Question?</p> */}
       </MainSection>
     </div>
   );
