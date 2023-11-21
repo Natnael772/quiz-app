@@ -39,6 +39,9 @@ function App() {
   const [{ questions, status }, dispatch] = useReducer(reducer, initialState);
   // const [state, dispatch] = useReducer(reducer, initialState);
 
+  //derived state
+  const numQuestions = questions.length;
+
   return (
     <div className="app">
       <Header />
