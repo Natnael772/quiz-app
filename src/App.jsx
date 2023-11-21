@@ -63,6 +63,9 @@ function App() {
       <MainSection>
         {/* <p>1/15</p>
         <p>Question?</p> */}
+        {status === "loading" && <Loader />}
+        {status === "error" && <Error />}
+        {status === "ready" && <StartScreen />}
       </MainSection>
     </div>
   );
