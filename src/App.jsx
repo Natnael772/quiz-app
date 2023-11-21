@@ -65,7 +65,7 @@ function App() {
         <p>Question?</p> */}
         {status === "loading" && <Loader />}
         {status === "error" && <Error />}
-        {status === "ready" && <StartScreen />}
+        {status === "ready" && <StartScreen numQuestions={numQuestions} />}
       </MainSection>
     </div>
   );
