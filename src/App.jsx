@@ -8,6 +8,7 @@ import MainSection from "./MainSection";
 import Loader from "./Loader";
 import Error from "./Error";
 import StartScreen from "./StartScreen";
+import Question from "./Question";
 
 function reducer(state, action) {
   switch (action.type) {
@@ -23,6 +24,13 @@ function reducer(state, action) {
         ...state,
         status: "error",
       };
+
+    case "start": {
+      return {
+        ...state,
+        status: "active",
+      };
+    }
 
     default:
       throw new Error("Unknown action");
