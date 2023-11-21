@@ -73,7 +73,12 @@ function App() {
         <p>Question?</p> */}
         {status === "loading" && <Loader />}
         {status === "error" && <Error />}
-        {status === "ready" && <StartScreen numQuestions={numQuestions} />}
+        {status === "ready" && (
+          <StartScreen
+            numQuestions={numQuestions}
+            dispatch={() => dispatch({ type: "start" })}
+          />
+        )}
       </MainSection>
     </div>
   );
