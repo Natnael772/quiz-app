@@ -9,7 +9,16 @@ import Loader from "./Loader";
 import Error from "./Error";
 import StartScreen from "./StartScreen";
 
+const initialState = {
+  questions: [],
+
+  // loading, error,ready, active, finished,
+  status: "loading",
+};
+
 function App() {
+  const [state, dispatch] = useReducer(reducer, initialState);
+
   return (
     <div className="app">
       <Header />
